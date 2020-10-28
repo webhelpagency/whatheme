@@ -6,7 +6,7 @@ WHATHEME is a WordPress starter theme with bootstrap 4 + sass + browsersync.
 
 ### Installation
 
-Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
+WHATHEME requires [Node.js](https://nodejs.org/) v4+ to run.
 
 Install the dependencies and devDependencies and start the server.
 
