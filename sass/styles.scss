@@ -6,6 +6,19 @@ img {
     height: auto;
 }
 
+.alignright {
+    float: right;
+}
+
+.alignleft {
+    float: left;
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto;
+}
+
 body {
     background-color: #fff; 
 } 

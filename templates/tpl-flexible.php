@@ -30,6 +30,8 @@ get_header();
 
                             get_template_part( 'flex-templates/image_content' );
 
+                            get_template_part( 'flex-templates/editor' );
+
                         // End loop.
                         endwhile;
 
