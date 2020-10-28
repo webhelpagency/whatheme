@@ -79,7 +79,7 @@ function watchFiles() {
     series(sassLint, buildStyles)
   );
   watch(
-    ['js/**/*.js'],
+    ['src/js/custom-javascript.js'],
     { events: 'all', ignoreInitial: false },
     series(scripts)
   );
@@ -116,9 +116,9 @@ gulp.task( 'copy-assets', function( done ) {
 // Init BrowserSync.
 function browserSync(done) {
   browsersync.init({
-    proxy: 'wha.test', // Change this value to match your local URL.
+    proxy: 'http://192.168.64.2/wordpress', // Change this value to match your local URL.
     files: [
-      "./**/*.css", "./**/*.php", "./**/*.js"
+      "./**/*.css", "./**/*.php", "./js/**/*.js"
   ]
   });
 }

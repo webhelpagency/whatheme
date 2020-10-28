@@ -63,6 +63,12 @@ function my_theme_register_required_plugins() {
 			'name'        => 'Really simple ssl',
 			'slug'        => 'really-simple-ssl',
             'required' => false,
+		),
+		
+		array(
+			'name'        => 'Classic Editor',
+			'slug'        => 'classic-editor',
+            'required' => true,
         ),
 
         // This is an example of how to include a plugin from an arbitrary external source in your theme.
