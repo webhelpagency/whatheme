@@ -19,6 +19,7 @@ $understrap_includes = array(
 	'/pagination.php',                      // Custom pagination for this theme.
     '/class-tgm-plugin-activation.php',                      // Include the TGM_Plugin_Activation class.
     '/sidebars.php',                      // Register Custom sidebars
+    '/woocommerce.php',                      // Include the TGM_Plugin_Activation class.
 	'/tgmpa_register.php',                      // Include the TGM_Plugin_Activation class.
 	'/class-wp-bootstrap-navwalker.php',    // Load custom WordPress nav walker. Trying to get deeper navigation? Check out: https://github.com/understrap/understrap/issues/567.
 );

@@ -67,6 +67,9 @@ if ( ! function_exists( 'whatheme_setup' ) ) {
 			)
 		);
 
+		// Set up the WordPress Theme logo feature.
+		add_theme_support( 'custom-logo' );
+
 		/*
 		 * Adding Thumbnail basic support
 		 */
