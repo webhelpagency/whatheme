@@ -1,6 +1,24 @@
 @import "../src/sass/bootstrap4/bootstrap.scss";      // <-------- Loads Bootstrap4
 @import "theme/theme_variables";  // <-------- Add your variables into this file. Also add variables to overwrite Bootstrap or UnderStrap variables here
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.alignright {
+    float: right;
+}
+
+.alignleft {
+    float: left;
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto;
+}
+
 body {
     background-color: #fff; 
-}
+} 

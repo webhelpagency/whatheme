@@ -17,7 +17,8 @@ $understrap_includes = array(
 	'/enqueue.php',                         // Enqueue scripts and styles.
 	'/template-tags.php',                   // Custom template tags for this theme.
 	'/pagination.php',                      // Custom pagination for this theme.
-	'/class-tgm-plugin-activation.php',                      // Include the TGM_Plugin_Activation class.
+    '/class-tgm-plugin-activation.php',                      // Include the TGM_Plugin_Activation class.
+    '/sidebars.php',                      // Register Custom sidebars
 	'/tgmpa_register.php',                      // Include the TGM_Plugin_Activation class.
 	'/class-wp-bootstrap-navwalker.php',    // Load custom WordPress nav walker. Trying to get deeper navigation? Check out: https://github.com/understrap/understrap/issues/567.
 );
