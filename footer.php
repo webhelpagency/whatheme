@@ -28,7 +28,7 @@
                     the_custom_logo();
                 }
                 ?>
-                <small class="d-block mb-3 text-muted">&copy; <?php echo date('Y'); ?></small>
+        
             </div>
             <div class="col-6 col-md">
                 <h5>Features</h5>
@@ -59,6 +59,11 @@
                     <li><a class="text-muted" href="#">Terms</a></li>
                 </ul>
             </div>
+        </div>
+    </div>
+    <div class="bg-light py-3">
+        <div class="container">
+            <span class="text-muted"><small class="d-block text-muted">&copy; <?php echo date('Y'); ?></small></span>
         </div>
     </div>
 </footer>
