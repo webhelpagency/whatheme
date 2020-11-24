@@ -136,3 +136,94 @@ if ( ! function_exists( 'whatheme_all_excerpts_get_more_link' ) ) {
 		return $post_excerpt;
 	}
 }
+
+// Enable revisions for all custom post types
+add_filter( 'cptui_user_supports_params', function () {
+	return array( 'revisions' );
+} );
+
+// Limit number of revisions for all post types
+function limit_revisions_number() {
+	return 10;
+}
+
+add_filter( 'wp_revisions_to_keep', 'limit_revisions_number');
+
+// Add ability ro reply to comments
+add_filter( 'wpseo_remove_reply_to_com', '__return_false' );
+
+// Enable control over YouTube iframe through API + add unique ID
+
+function add_youtube_iframe_args( $html, $url, $args ) {
+
+	/* Modify video parameters. */
+	if ( strstr( $html, 'youtube.com/embed/' ) && ! empty( $args['location'] ) ) {
+		preg_match_all( '|embed/(.*)\?|', $html, $matches );
+		$html = str_replace( '?feature=oembed', '?feature=oembed&enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&showinfo=0&rel=0&playlist=' . $matches[1][0], $html );
+		$html = str_replace( '<iframe', '<iframe rel="0" enablejsapi="1" id=slide-' . get_the_ID(), $html );
+	}
+
+	return $html;
+}
+
+add_filter( 'oembed_result', 'add_youtube_iframe_args', 10, 3 );
+
+/**
+ * Remove author archive pages
+ */
+function remove_author_archive_page() {
+	global $wp_query;
+
+	if ( is_author() ) {
+		$wp_query->set_404();
+		status_header(404);
+		// Redirect to homepage
+		// wp_redirect(get_option('home'));
+	}
+}
+add_action( 'template_redirect', 'remove_author_archive_page' );
+
+/**
+ * Remove comments feed links
+ */
+add_filter( 'post_comments_feed_link', '__return_null' );
+
+// Stick Admin Bar To The Top
+if ( ! is_admin() ) {
+	add_action( 'get_header', 'remove_topbar_bump' );
+
+	function remove_topbar_bump() {
+		remove_action( 'wp_head', '_admin_bar_bump_cb' );
+	}
+
+	function stick_admin_bar() {
+		echo "
+			<style type='text/css'>
+				body.admin-bar {margin-top:32px !important}
+				@media screen and (max-width: 782px) {
+					body.admin-bar { margin-top:46px !important }
+				}
+			</style>
+			";
+	}
+
+	add_action( 'admin_head', 'stick_admin_bar' );
+	add_action( 'wp_head', 'stick_admin_bar' );
+}
+
+// Disable Emoji
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+add_filter( 'tiny_mce_plugins', 'disable_wp_emojis_in_tinymce' );
+function disable_wp_emojis_in_tinymce( $plugins ) {
+	if ( is_array( $plugins ) ) {
+		return array_diff( $plugins, array( 'wpemoji' ) );
+	} else {
+		return array();
+	}
+}
