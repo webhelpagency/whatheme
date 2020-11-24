@@ -70,6 +70,32 @@ function my_theme_register_required_plugins() {
 			'slug'        => 'classic-editor',
             'required' => true,
         ),
+		
+		array(
+			'name'     => 'Custom Post Type UI', // The plugin name
+			'slug'     => 'custom-post-type-ui', // The plugin slug (typically the folder name)
+			'required' => false,
+		),
+		array(
+			'name'     => 'Google Analytics by MonsterInsights', // The plugin name
+			'slug'     => 'google-analytics-for-wordpress', // The plugin slug (typically the folder name)
+			'required' => false,
+		),
+		array(
+			'name'     => 'Login LockDown', // The plugin name
+			'slug'     => 'login-lockdown', // The plugin slug (typically the folder name)
+			'required' => false,
+		),
+		array(
+			'name'     => 'Robin image optimizer', // The plugin name
+			'slug'     => 'robin-image-optimizer', // The plugin slug (typically the folder name)
+			'required' => false,
+		),
+		array(
+			'name'     => 'Usersnap', // The plugin name
+			'slug'     => 'usersnap', // The plugin slug (typically the folder name)
+			'required' => false,
+		),
 
         // This is an example of how to include a plugin from an arbitrary external source in your theme.
 		array(
